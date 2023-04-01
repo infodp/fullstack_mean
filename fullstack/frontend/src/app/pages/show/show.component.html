@@ -1,0 +1,40 @@
+<div class="container text-center">
+  <div class="mt-4">
+    <img src="/assets/angular.png" width="100" height="100" alt="" />
+    <h2>FullStack MEAN</h2>
+  </div>
+  <div class="d-grid gap-2">
+    <a routerLink="/create" class="btn btn-create" type="button"
+      ><fa-icon [icon]="faCirclePlus" [size]="'2x'"></fa-icon
+    ></a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-info">
+          <th style="display: none">Id</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td style="display: none">{{ product._id }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            <div class="btn-group">
+              <a routerLink="/update/{{ product._id }}" class="btn btn-edit"
+                ><fa-icon [icon]="faPen"></fa-icon></a
+              >
+              <button (click)="delete(product._id, i)" class="btn btn-delete"><fa-icon [icon]="faTrash"></fa-icon></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

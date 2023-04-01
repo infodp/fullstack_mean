@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title text-center">Edit Product</h5>
+        <app-generic-form 
+            *ngIf="model"
+            [modelProduct]="model"
+            (submitValues)="onSubmit($event)"
+        ></app-generic-form>
+    </div>
+</div>
